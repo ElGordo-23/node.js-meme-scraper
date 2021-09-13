@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 const cheerio = require('cheerio');
 const download = require('download');
 
-//create new folder in project directory (.)
+// create new folder in project directory (.)
 fs.mkdir('./memes', { recursive: true }, (err) => {
   if (err) throw err;
 });
@@ -20,18 +20,18 @@ async function getImages() {
 
   const $ = cheerio.load(htmlBody);
 
-  //look for all the images, and access the source attribute, save it in an array
+  // look for all the images, and access the source attribute, save it in an array
   const imageUrls = $('img')
     .map((item, x) => $(item, x).attr('src'))
     .toArray();
 
-  //get the first 10 URLs
+  // get the first 10 URLs
   const tenUrls = imageUrls.slice(0, 10);
 
-  //specify where to save the images
+  // specify where to save the images
   const filePath = `./memes`;
 
-  //download the images using the download library
+  // download the images using the download library
 
   tenUrls.forEach((element) => download(element, filePath));
 }
