@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "download": "^8.0.0",
+    "got": "^11.8.2",
+    "node-fetch": "^2.6.2",
+    "yesno": "^0.3.1"
+  }
+}
